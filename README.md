@@ -47,7 +47,7 @@ setup(name='grandmasomsri',
       author_email='youremail@example.com',
       license='Somsri',
       install_requires=[
-          'datrie',
+          'otherpackage',
       ],
       scripts=['bin/grandmasomsri-run'],
       keywords='somsri grandma grandmasomsri moy',
@@ -55,7 +55,7 @@ setup(name='grandmasomsri',
       )
 ```
 
-* In this package we use <code>datrie</code> that mean our package <code>grandmasomsri</code> depends on package <code>datrie</code> so we just add <code>install_requires</code> keyword argument
+* If your package required any package you needso add <code>install_requires</code> keyword argument to <code>setup.py</code> 
 * Many Python packages include command line tools. This is useful for distributing support tools which are associated with a library 
 for <code>grandmasomsri</code>, we will add a <code>grandmasomsri-run</code> command line tool by adding <code>scripts</code> keyword argument 
 * You’ll probably want a README file in your source distribution, and that file can serve double purpose as the <code>long_description</code> specified to PyPI. Further, if that file is written in reStructuredText, it can be formatted nicely
@@ -81,10 +81,6 @@ from grandmasomsri.grandmasomsri import somsri
 print (somsri())
 print (moy())
 ``` 
-When we install the package, <code>setuptools</code> will copy the script to our PATH and make it available for general use:
-```
-$ grandmasomsri-run
-```
 <code>MANIFEST.in</code> contains:
 ```
 include README.me
@@ -134,3 +130,9 @@ At this point, other consumers of this package can install the package with <cod
 $ pip install grandmasomsri
 ```
 It will be automatically installed to your Python package folder
+and <code>setuptools</code> will copy the script to our PATH and make it available for general use
+
+You can run package in command line by following this command:
+```
+$ grandmasomsri-run
+```
