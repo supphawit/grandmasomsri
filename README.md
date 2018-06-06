@@ -14,18 +14,20 @@ Python module/package names should generally follow the following constraints:
 
 # Creating The Scaffolding
 
-Directory structure for <code>somsri</code> should look like this:
+Directory structure for <code>grandmasomsri</code> should look like this:
 ```
-  grandmasomsri/
+  somsri/
     setup.py
     REAME.md
     MANIFEST.in
     bin/
-      somsri-run
-    somsri/
-      somsri.py
+      grandmasomsri-run
+    grandmasomsri/
+      __init__.py
+      grandmasomsri.py
+      grandmamoy.py
 ```
-The subdirectory <code>somsri</code> is actually our Python module
+The subdirectory <code>grandmasomsri</code> is actually our Python module
 
 <code>setup.py</code> contains:
 ```Python
@@ -35,39 +37,53 @@ def readme():
     with open('README.md') as f:
         return f.read()
 
-setup(name='somsri',
-      packages=['somsri'],
+setup(name='grandmasomsri',
+      packages=['grandmasomsri'],
       version='0.1',
-      description='This is Grandma Somsri',
+      description='Grandma Somsri and Grandma Moy',
       long_description=readme(),
       url='https://github.com/SOMSRICAT/grandmasomsri',
       author='SomsriCat',
-      author_email='your_email@example.com',
+      author_email='youremail@example.com',
       license='Somsri',
       install_requires=[
           'datrie',
       ],
-      scripts=['bin/somsri-run'],
-      keywords='somsri',
+      scripts=['bin/grandmasomsri-run'],
+      keywords='somsri grandma grandmasomsri moy',
       include_package_data=True,
       )
 ```
 
-* In this package we use <code>datrie</code> that mean our package <code>somsri</code> depends on package <code>datrie</code> so we just add <code>install_requires</code> keyword argument
+* In this package we use <code>datrie</code> that mean our package <code>grandmasomsri</code> depends on package <code>datrie</code> so we just add <code>install_requires</code> keyword argument
 * Many Python packages include command line tools. This is useful for distributing support tools which are associated with a library 
-for <code>somsri</code>, we will add a <code>somsri-run</code> command line tool by adding <code>scripts</code> keyword argument 
+for <code>grandmasomsri</code>, we will add a <code>grandmasomsri-run</code> command line tool by adding <code>scripts</code> keyword argument 
 * You’ll probably want a README file in your source distribution, and that file can serve double purpose as the <code>long_description</code> specified to PyPI. Further, if that file is written in reStructuredText, it can be formatted nicely
 
-The <code>somsri-run</code> script in <code>bin/somsri-run</code> looks like this:
+<code>grandmasomsri.py</code> contains:
+```Python
+def somsri():
+    return ("Grandma Somsri sell shellfish")
+```
+<code>grandmamoy.py</code> contains:
+```Python
+def moy():
+    return ("Grandma Moy sell bear ")
+```
+
+The <code>grandmasomsri-run</code> script in <code>bin/grandmasomsri-run</code> looks like this:
 ```Python
 #!/usr/bin/env python 
 
-import somsri
-print (somsri.printsomsri())
+from grandmasomsri.grandmamoy import moy 
+from grandmasomsri.grandmasomsri import somsri 
+
+print (somsri())
+print (moy())
 ``` 
 When we install the package, <code>setuptools</code> will copy the script to our PATH and make it available for general use:
 ```
-$ somsri-run
+$ grandmasomsri-run
 ```
 <code>MANIFEST.in</code> contains:
 ```
@@ -85,7 +101,7 @@ First create a source distribution with:
 ```
 $ python setup.py sdist
 ```
-This will create <code>dist/somsri-0.1.tar.gz</code> inside our top-level directory. 
+This will create <code>dist/grandmasomsri-0.1.tar.gz</code> inside our top-level directory. 
 
 You can use <code>twine</code> to upload the distribution packages. You’ll need to install <code>twine</code> by this command:
 ```
@@ -115,6 +131,6 @@ After the command completes you can check your package at [PyPI](https://pypi.or
 
 At this point, other consumers of this package can install the package with <code>pip</code>:
 ```
-$ pip install somsri
+$ pip install grandmasomsri
 ```
 It will be automatically installed to your Python package folder
