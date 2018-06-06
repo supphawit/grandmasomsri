@@ -38,12 +38,12 @@ def readme():
 setup(name='somsri',
       packages=['somsri'],
       version='0.1',
-      description='somsri for Python3',
+      description='This is Grandma Somsri',
       long_description=readme(),
-      url='https://gitlab.thinknet.co.th/research/somsri',
-      author='Team P krak',
-      author_email='supphawit@thinknet.co.th',
-      license='Thinknet',
+      url='https://github.com/SOMSRICAT/grandmasomsri',
+      author='SomsriCat',
+      author_email='your_email@example.com',
+      license='Somsri',
       install_requires=[
           'datrie',
       ],
@@ -63,7 +63,7 @@ The <code>somsri-run</code> script in <code>bin/somsri-run</code> looks like thi
 #!/usr/bin/env python 
 
 import somsri
-print somsri.printsomsri()
+print (somsri.printsomsri())
 ``` 
 When we install the package, <code>setuptools</code> will copy the script to our PATH and make it available for general use:
 ```
