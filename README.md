@@ -61,6 +61,8 @@ setup(name='grandmasomsri',
 for <code>grandmasomsri</code>, we will add a <code>grandmasomsri-run</code> command line tool by adding <code>scripts</code> keyword argument 
 * You’ll probably want a README file in your source distribution, and that file can serve double purpose as the <code>long_description</code> specified to PyPI. Further, if that file is written in reStructuredText, it can be formatted nicely
 
+see more setup.py in the [PyPA sample project](https://github.com/pypa/sampleproject)
+
 <code>grandmasomsri.py</code> contains:
 ```Python
 def somsri():
