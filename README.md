@@ -133,7 +133,8 @@ At this point, other consumers of this package can install the package with <cod
 ```
 $ pip install grandmasomsri
 ```
-If you update your package it will take about 5-10 minutes to update your package then run this command:
+If you update your package it will take about 5-10 minutes to update your package. 
+you can upgrade your package by run this command:
 ```
 $ pip install grandmasomsri --upgrade
 ```
