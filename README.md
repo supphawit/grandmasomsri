@@ -21,12 +21,14 @@ Directory structure for <code>grandmasomsri</code> should look like this:
     REAME.md
     MANIFEST.in
     bin/
-      grandmasomsri-run
-    grandmasomsri/
-      __init__.py
-      grandmasomsri.py
-      grandmamoy.py
-      hello.txt
+        grandmasomsri-run
+    src/
+        grandmasomsri/
+            __init__.py
+            grandmasomsri.py
+            grandmamoy.py
+            text/
+                hello.txt
 ```
 The subdirectory <code>grandmasomsri</code> is actually our Python module
 
@@ -39,7 +41,6 @@ def readme():
         return f.read()
 
 setup(name='grandmasomsri',
-      packages=['grandmasomsri'],
       version='0.1',
       description='Grandma Somsri and Grandma Moy',
       long_description=readme(),
@@ -52,7 +53,9 @@ setup(name='grandmasomsri',
       ],
       scripts=['bin/grandmasomsri-run'],
       keywords='somsri grandma grandmasomsri moy',
-      include_package_data=True,
+      packages=['grandmasomsri'],
+      package_dir={'grandmasomsri': 'src/grandmasomsri'},
+      package_data={'grandmasomsri': ['text/*.txt']},
       )
 ```
 
@@ -60,6 +63,10 @@ setup(name='grandmasomsri',
 * Many Python packages include command line tools. This is useful for distributing support tools which are associated with a library 
 for <code>grandmasomsri</code>, we will add a <code>grandmasomsri-run</code> command line tool by adding <code>scripts</code> keyword argument 
 * You’ll probably want a README file in your source distribution, and that file can serve double purpose as the <code>long_description</code> specified to PyPI. Further, if that file is written in reStructuredText, it can be formatted nicely
+* Package data can be added to packages using the <code>package_data</code> keyword argument to the setup() function
+* Use <code>package_data</code> key argument path your package location
+* Changed in version 3.1: All the files that match <code>package_data</code> will be added to the MANIFEST file if no template is provided. 
+
 
 see more setup.py in the [PyPA sample project](https://github.com/pypa/sampleproject)
 
@@ -87,7 +94,6 @@ print (moy())
 <code>MANIFEST.in</code> contains:
 ```
 include README.md
-include *.txt
 recursive-include grandmasomsri *.txt *.py
 ```
 If you have other files that you want to include in your package just add <code>include</code> in <code>MANIFEST.in</code> it's meaning all files in the distribution root matching *.txt,and <code>recursive-include</code> meaning all files anywhere under the <code>grandmasomsri</code> directory matching *.txt or *.py
