@@ -26,6 +26,7 @@ Directory structure for <code>grandmasomsri</code> should look like this:
       __init__.py
       grandmasomsri.py
       grandmamoy.py
+      hello.txt
 ```
 The subdirectory <code>grandmasomsri</code> is actually our Python module
 
@@ -83,8 +84,11 @@ print (moy())
 ``` 
 <code>MANIFEST.in</code> contains:
 ```
-include README.me
+include README.md
+include *.txt
+recursive-include grandmasomsri *.txt *.py
 ```
+If you have other files that you want to include in your package just add <code>include</code> in <code>MANIFEST.in</code> it's meaning all files in the distribution root matching *.txt,and <code>recursive-include</code> meaning all files anywhere under the <code>grandmasomsri</code> directory matching *.txt or *.py
 
 Now we can install the package locally (for use on our system or test before publish) with:
 ```
