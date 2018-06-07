@@ -5,8 +5,7 @@ def readme():
         return f.read()
 
 setup(name='grandmasomsri',
-      packages=['grandmasomsri'],
-      version='0.1',
+      version='0.2',
       description='Grandma Somsri and Moy',
       long_description=readme(),
       url='https://github.com/SOMSRICAT/grandmasomsri',
@@ -18,7 +17,9 @@ setup(name='grandmasomsri',
       ],
        scripts=['bin/grandmasomsri-run'],
        keywords='somsri grandmasomsri grandma',
-       include_package_data=True,
+       packages=['grandmasomsri'],
+       package_dir={'grandmasomsri': 'src/grandmasomsri'},
+       package_data={'grandmasomsri': ['text/*.txt']},
        )
 
 
