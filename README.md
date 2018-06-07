@@ -64,7 +64,7 @@ setup(name='grandmasomsri',
 for <code>grandmasomsri</code>, we will add a <code>grandmasomsri-run</code> command line tool by adding <code>scripts</code> keyword argument 
 * You’ll probably want a README file in your source distribution, and that file can serve double purpose as the <code>long_description</code> specified to PyPI. Further, if that file is written in reStructuredText, it can be formatted nicely
 * Package data can be added to packages using the <code>package_data</code> keyword argument to the setup() function
-* Use <code>package_data</code> key argument path your package location
+* Use <code>package_dir</code> key argument to path your package location
 * Changed in version 3.1: All the files that match <code>package_data</code> will be added to the MANIFEST file if no template is provided. 
 
 
