@@ -135,7 +135,7 @@ $ pip install grandmasomsri
 ```
 If you update your package it will take about 5-10 minutes to update your package. 
 
-you can upgrade your package by run this command:
+you can upgrade your package by following this command:
 ```
 $ pip install grandmasomsri --upgrade
 ```
