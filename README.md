@@ -109,9 +109,17 @@ First create a source distribution with:
 ```
 $ python setup.py sdist
 ```
+or
+```
+$ python3 setup.py sdist bdist_wheel
+```
 This will create <code>dist/grandmasomsri-0.1.tar.gz</code> inside our top-level directory. 
 
 You can use <code>twine</code> to upload the distribution packages. You’ll need to install <code>twine</code> by this command:
+```
+$ pip install twine --upgrade
+```
+or 
 ```
 $ python3 -m pip install --user --upgrade twine
 ```
