@@ -133,6 +133,11 @@ At this point, other consumers of this package can install the package with <cod
 ```
 $ pip install grandmasomsri
 ```
+If you update your package it will take about 5-10 minutes to update your package then run this command:
+```
+$ pip install grandmasomsri --upgrade
+```
+
 It will be automatically installed to your Python package folder
 and <code>setuptools</code> will copy the script to our PATH and make it available for general use
 
