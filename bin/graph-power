@@ -1,0 +1,5 @@
+#!/usr/bin/env python 
+
+from grandmasomsri.graph import power
+
+print (powerGraph())

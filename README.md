@@ -21,14 +21,16 @@ Directory structure for <code>grandmasomsri</code> should look like this:
     REAME.md
     MANIFEST.in
     bin/
-        grandmasomsri-run
+        grandpaprayud-status
+        grandmasomsri-status
+        graph-power
     src/
         grandmasomsri/
             __init__.py
-            grandmasomsri.py
-            grandmamoy.py
-            text/
-                hello.txt
+            grandmaSomsri.py
+            grandpaPrayud.py
+            graph/
+                power.py
 ```
 The subdirectory <code>grandmasomsri</code> is actually our Python module
 
@@ -41,27 +43,31 @@ def readme():
         return f.read()
 
 setup(name='grandmasomsri',
-      version='0.1',
-      description='Grandma Somsri and Grandma Moy',
-      long_description=readme(),
-      url='https://github.com/SOMSRICAT/grandmasomsri',
-      author='SomsriCat',
-      author_email='youremail@example.com',
-      license='Somsri',
-      install_requires=[
-          'otherpackage',
-      ],
-      scripts=['bin/grandmasomsri-run'],
-      keywords='somsri grandma grandmasomsri moy',
-      packages=['grandmasomsri'],
-      package_dir={'grandmasomsri': 'src/grandmasomsri'},
-      package_data={'grandmasomsri': ['text/*.txt']},
-      )
+    version='0.1',
+    description='Grandma Somsri and Moy',
+    long_description=readme(),
+    url='https://github.com/SOMSRICAT/grandmasomsri',
+    author='SomsriCat',
+    author_email='your_email@example.com',
+    license='Somsri',
+    install_requires=[
+        'matplotlib',
+        'numpy',
+    ],
+    scripts=['bin/grandmasomsri-status',
+             'bin/grandpaprayud-status',
+             'bin/graph-power'],
+    keywords='grandmasomsri grandpaprayud somsri prayud',
+    packages=['grandmasomsri'],
+    package_dir={'grandmasomsri': 'src/grandmasomsri'},
+    package_data={'grandmasomsri': ['graph/*.py']
+    },
+)
 ```
 
 * If your package required any package you needso add <code>install_requires</code> keyword argument to <code>setup.py</code> 
 * Many Python packages include command line tools. This is useful for distributing support tools which are associated with a library 
-for <code>grandmasomsri</code>, we will add a <code>grandmasomsri-run</code> command line tool by adding <code>scripts</code> keyword argument 
+for <code>grandmasomsri</code>, we will add a <code>grandmasomsri-status</code>, <code>grandpaprayud-status</code>, <code>graph-power</code>, command line tool by adding <code>scripts</code> keyword argument 
 * You’ll probably want a README file in your source distribution, and that file can serve double purpose as the <code>long_description</code> specified to PyPI. Further, if that file is written in reStructuredText, it can be formatted nicely
 * Package data can be added to packages using the <code>package_data</code> keyword argument to the setup() function
 * Use <code>package_dir</code> key argument to path your package location
@@ -70,33 +76,124 @@ for <code>grandmasomsri</code>, we will add a <code>grandmasomsri-run</code> com
 
 see more setup.py in the [PyPA sample project](https://github.com/pypa/sampleproject)
 
-<code>grandmasomsri.py</code> contains:
+# Package
+<code>grandmaSomsri.py</code> contains:
 ```Python
 def somsri():
-    return ("Grandma Somsri sell shellfish")
+    print ("---------------------------------------------")
+    print ("|                               /          |")
+    print ("|                          ,.. /           |")
+    print ("|                        ,'   ';           |")
+    print ("|            ,,.__    _,' /';  .           |")
+    print ("|           :','  ~~~~    '. '~            |")
+    print ("|         :' (   )         )::,            |")
+    print ("|         '. '. .=----=..-~  .;'           |")
+    print ("|          '  ;'  ::   ':.  ''             |")
+    print ("|           (:   ':    ;)                  |")
+    print ("|            \\\  '    //'                  |")
+    print ("|             ''      ''                   |")
+    print ("---------------------------------------------")
+    print ("|  Name: Grandma Somsri(ยายสมศรี)           |")
+    print ("|  Ability: Very good eyesight (DEX +99)   |")
+    print ("|  Weapon: Kar98k                          |")
+    print ("|  Hobby: Camping in the forest            |")
+    print ("---------------------------------------------")
 ```
-<code>grandmamoy.py</code> contains:
+<code>grandpaPrayud.py</code> contains:
 ```Python
-def moy():
-    return ("Grandma Moy sell bear ")
+def prayud():
+    print ("---------------------------------------------")
+    print ("|          ((  ####@@!!$$    ))             |")
+    print ("|              `#####@@!$$`  ))             |")
+    print ("|           ((  '####@!!$:                  |")
+    print ("|         ((  ,####@!!$:   ))               |")
+    print ("|             .###@!!$:                     |")
+    print ("|             `##@@!$:                      |")
+    print ("|               `#@!!$                      |")
+    print ("|          !@#    `#@!$:       @#$          |")
+    print ("|           #$     `#@!$:       !@!         |")
+    print ("|                   '@!$:                   |")
+    print ("|               '`\   !$: /`'               |")
+    print ("|                   '\  '!: /'              |")
+    print ("|                      '\ : /'              |")
+    print ("---------------------------------------------")
+    print ("|  Name: Grandpa Prayud(ตาประหยัด)           |")
+    print ("|  Ability: Can get angry anytime           |") 
+    print ("|           he want (str +99)               |")
+    print ("|  Weapon: Table                            |")
+    print ("|  Hobby: Do an exercise                    |")
+    print ("---------------------------------------------")
 ```
+```Python
+import matplotlib.pyplot as plt
+import numpy as np
+import random
 
-The <code>grandmasomsri-run</code> script in <code>bin/grandmasomsri-run</code> looks like this:
+def powerGraph():
+    y = np.arange(0,100)
+    prayud = []
+    somsri = []
+    for i in y:
+        tmp = i * 0.8
+        if tmp % 3 == 0:
+            tmp *= 1.2
+        if tmp % 4 == 0:
+            tmp *= 2
+        prayud.append(tmp)
+
+        tmp = i * 0.6
+        if tmp % 4 == 0:
+            tmp *= 1.1
+        if tmp % 7 == 0:
+            tmp *= 0.5
+        if tmp % 6 == 0:
+            tmp *= 2.5
+        somsri.append(tmp)
+
+
+    plt.plot(y,somsri,'-', label='Grandma Somsri')
+    plt.plot(y,prayud, '-', label='Grandpa Prayud')
+    plt.title("Power Graph")
+    plt.xlabel('100 %')
+    plt.ylabel('Power')
+
+    plt.legend()
+
+    plt.show()
+
+powerGraph()
+```
+# Script
+The <code>grandmasomsri-status</code> script in bin looks like this:
 ```Python
 #!/usr/bin/env python 
 
-from grandmasomsri.grandmamoy import moy 
-from grandmasomsri.grandmasomsri import somsri 
+from grandmasomsri.grandmaSomsri import somsri 
 
 print (somsri())
-print (moy())
+
+``` 
+The <code>grandpaprayud-status</code> script in bin looks like this:
+```Python
+#!/usr/bin/env python 
+
+from grandmasomsri.grandpaPrayud import prayud 
+
+print (prayud())
+
+``` 
+The <code>graph-power</code> script in bin looks like this:
+```Python
+#!/usr/bin/env python 
+
+from grandmasomsri.graph import power
+
+print (powerGraph())
 ``` 
 <code>MANIFEST.in</code> contains:
 ```
 include README.md
-recursive-include grandmasomsri *.txt *.py
 ```
-If you have other files that you want to include in your package just add <code>include</code> in <code>MANIFEST.in</code> it's meaning all files in the distribution root matching *.txt,and <code>recursive-include</code> meaning all files anywhere under the <code>grandmasomsri</code> directory matching *.txt or *.py
 
 Now we can install the package locally (for use on our system or test before publish) with:
 ```
@@ -149,17 +246,18 @@ At this point, other consumers of this package can install the package with <cod
 ```
 $ pip install grandmasomsri
 ```
-If you update your package it will take about 5-10 minutes to update your package. 
 
-you can upgrade your package by following this command:
-```
-$ pip install grandmasomsri --upgrade
-```
 
-It will be automatically installed to your Python package folder
-and <code>setuptools</code> will copy the script to our PATH and make it available for general use
+Its will be automatically installed to your Python package folder
+and <code>setuptools</code> will copy the script to your PATH and make it available for general use
 
 You can run package in command line by following this command:
 ```
-$ grandmasomsri-run
+$ grandmasomsri-status
+```
+```
+$ grandpaprayud-status
+```
+```
+$ graph-power
 ```
