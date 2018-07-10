@@ -44,7 +44,7 @@ def readme():
 
 setup(name='grandmasomsri',
     version='0.1',
-    description='Grandma Somsri and Moy',
+    description='Grandma Somsri and Grandpa Prayud',
     long_description=readme(),
     url='https://github.com/SOMSRICAT/grandmasomsri',
     author='SomsriCat',
